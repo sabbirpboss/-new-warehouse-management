@@ -16,9 +16,9 @@ const Header = () => {
         }
     }
 
-    const logo = <>
-        <h2 className='text-xl font-bold font-mono text-white'>SpringStock</h2>
-    </>
+    const logo = <div className='flex justify-center items-center'>
+       <img className='w-10 mr-1' src="logo.png" alt="" /> <h2 className='text-xl font-bold font-mono text-white'>Stock</h2>
+    </div>
     const menuItems = <>
         <li><Link to="/manage">Manage</Link></li>
         {/* <li><Link to="/">Add Item</Link></li>
