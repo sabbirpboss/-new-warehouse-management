@@ -1,6 +1,40 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useState } from 'react';
+import auth from './../../../firebase.init';
+
 
 const Login = () => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+
+  const [signInWithGoogle] = useSignInWithGoogle(auth); 
+
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (user) {
+    return (
+      <div>
+        <p>Signed In User: {user.email}</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div class="hero min-h-screen bg-base-400">
@@ -15,20 +49,29 @@ const Login = () => {
                 <label class="label">
                   <span class="label-text">Email</span>
                 </label>
-                <input type="text" placeholder="email" class="input input-bordered" />
+                <input type="text" value={email} placeholder="email" class="input input-bordered" onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div class="form-control">
                 <label class="label">
                   <span class="label-text">Password</span>
                 </label>
-                <input type="text" placeholder="password" class="input input-bordered" />
+                <input type="text" value={password} placeholder="password" class="input input-bordered" onChange={(e) => setPassword(e.target.value)} />
                 <label class="label">
                   <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
                 </label>
               </div>
               <div class="form-control mt-6">
-                <button class="btn btn-primary">Login</button>
+                <button onClick={() => signInWithEmailAndPassword(email, password)} class="btn btn-primary mb-4">Login</button>
               </div>
+              <button
+                onClick={() => signInWithGoogle()}
+                className="btn btn-secondary bg-red-400 border-0 rounded p-2 my-4 mt-0 text-white"
+              >
+                Sign In With Google
+              </button>
+              <button className="btn btn-accent border-0 rounded p-2 mb-4 mt-0 text-white">
+                Sign In With Facebook
+              </button>
             </div>
           </div>
         </div>
