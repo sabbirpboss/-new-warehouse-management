@@ -17,7 +17,7 @@ const Header = () => {
     }
 
     const logo = <>
-        <h2 className='text-xl font-bold font-mono text-white'>Spring Stock</h2>
+        <h2 className='text-xl font-bold font-mono text-white'>SpringStock</h2>
     </>
     const menuItems = <>
         <li><Link to="/manage">Manage</Link></li>

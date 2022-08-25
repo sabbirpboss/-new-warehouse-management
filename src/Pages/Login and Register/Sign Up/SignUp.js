@@ -60,6 +60,7 @@ const SignUp = () => {
                   placeholder="Your Name"
                   class="input input-bordered"
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </div>
               <div class="form-control">
@@ -72,6 +73,7 @@ const SignUp = () => {
                   placeholder="email"
                   class="input input-bordered"
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div class="form-control">
@@ -84,6 +86,7 @@ const SignUp = () => {
                   placeholder="password"
                   class="input input-bordered"
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
                 <label class="label">
                   <a href="#" class="label-text-alt link link-hover">
