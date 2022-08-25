@@ -6,16 +6,16 @@ const Header = () => {
         <h2 className='text-xl font-bold font-mono text-white'>Spring Stock</h2>
     </>
     const menuItems = <>
-        <li><Link to="/">Manage</Link></li>
+        <li><Link to="/manage">Manage</Link></li>
         {/* <li><Link to="/">Add Item</Link></li>
         <li><Link to="/">My Items</Link></li> */}
-        <li><Link to="/">Pricing</Link></li>
-        <li><Link to="/">Contact</Link></li>
-        <li><Link to="/">Blog</Link></li>
-        <li><Link to="/">About Us</Link></li>
+        <li><Link to="/pricing">Pricing</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/blog">Blog</Link></li>
+        <li><Link to="/about">About Us</Link></li>
         <div className='flex items-center'>
-        <li className='bg-base-200 text-white rounded ml-4'><Link to="/">How it works</Link></li>
-        <li className='bg-red-500 text-white rounded ml-4'><Link to="/">Buy Now</Link></li>
+        <li className='bg-base-200 text-white rounded ml-4'><Link to="/how">How it works</Link></li>
+        <li className='bg-red-500 text-white rounded ml-4'><Link to="/buy">Buy Now</Link></li>
         </div>
     </>;
 
@@ -25,7 +25,7 @@ const Header = () => {
                 <img src="user.jpg" alt='user' />
             </div>
         </div>
-        <ul style={{textDecoration: 'none'}}><li><Link to="/">SignUp</Link></li></ul>
+        <ul className='flex flex-col-reverse' style={{textDecoration: 'none'}}><li><Link to="/signup">SignUp</Link></li><li><Link to="/login">Login</Link></li></ul>
     </>
 
     return (
